@@ -29,6 +29,21 @@ You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you
 
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
+## Deploying to Vercel
+
+This project uses the community `vercel-php` runtime configured in `vercel.json`. In Vercel, import this repository with the project root as the root directory, choose the **Other** framework preset, set the build command to `npm run build`, and set the output directory to `public`.
+
+Add these environment variables in Vercel for Production:
+
+- `APP_ENV=production`
+- `APP_DEBUG=false`
+- `APP_URL` set to the deployed HTTPS URL
+- `APP_KEY` generated for production with `php artisan key:generate --show`
+- `DB_CONNECTION=mysql`
+- `DATABASE_URL` set to Railway's **public** MySQL connection URL (not its private-network URL)
+
+Do not put `.env` or database credentials in GitHub. Apply database migrations once against the production database with `php artisan migrate --force`; do not use `--seed` on a database containing data. The Vercel entry point uses temporary storage, cookie sessions, in-memory cache, and stderr logging because serverless instances do not provide persistent local storage. Product image and book uploads currently write to local `public` directories and therefore are not persistent on Vercel; use object storage before relying on uploads in production.
+
 ## Laravel Sponsors
 
 We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
