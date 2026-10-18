@@ -1,0 +1,557 @@
+/* ==========================================================================
+   BOOK STORE JOTI - MODERN HIGH-CONTRAST DARK EXECUTIVE THEME
+   Eliminates all washed-out white text and white backgrounds.
+   Crisp, sharp, highly readable typography on deep slate surfaces.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --bg-main: #0b1120;            /* Deep obsidian dark background */
+    --bg-surface: #1e293b;         /* Rich slate card surface */
+    --bg-surface-hover: #273549;   /* Hover state for dark cards */
+    --bg-input: #0f172a;           /* Dark input background */
+    --border-color: #334155;       /* Sharp border definition */
+    --border-light: #475569;
+
+    --text-primary: #f8fafc;       /* Ultra crisp white-slate for reading */
+    --text-secondary: #cbd5e1;     /* Highly visible light gray */
+    --text-muted: #94a3b8;         /* Clear muted text */
+
+    --primary-color: #6366f1;      /* Electric Indigo */
+    --primary-hover: #4f46e5;
+    --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    
+    --success-color: #10b981;
+    --success-gradient: linear-gradient(135deg, #059669 0%, #10b981 100%);
+
+    --warning-color: #f59e0b;
+    --warning-gradient: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+
+    --danger-color: #ef4444;
+    --danger-gradient: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+}
+
+/* --------------------------------------------------------------------------
+   GLOBAL RESET & OVERRIDES FOR BOOTSWATCH QUARTZ
+   -------------------------------------------------------------------------- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+    background-color: var(--bg-main) !important;
+    color: var(--text-primary) !important;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    letter-spacing: -0.01em;
+}
+
+/* Force override Quartz weird text coloring */
+p, span, h1, h2, h3, h4, h5, h6, label, div {
+    color: inherit;
+}
+
+a {
+    color: #38bdf8 !important;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #7dd3fc !important;
+}
+
+/* --------------------------------------------------------------------------
+   NAVBAR
+   -------------------------------------------------------------------------- */
+.navbar-custom {
+    background: #0f172a !important;
+    border-bottom: 1px solid #1e293b !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+    padding: 0.85rem 0;
+}
+
+.navbar-brand {
+    font-weight: 800;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: #f8fafc !important;
+}
+
+.brand-icon {
+    width: 38px;
+    height: 38px;
+    background: var(--primary-gradient);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+.nav-link {
+    font-weight: 600;
+    font-size: 0.925rem;
+    color: #94a3b8 !important;
+    padding: 0.5rem 0.9rem !important;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.nav-link:hover {
+    color: #f8fafc !important;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-link.active {
+    color: #ffffff !important;
+    background: var(--primary-gradient);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+}
+
+.user-dropdown-btn {
+    background: #1e293b !important;
+    border: 1px solid #334155 !important;
+    border-radius: 9999px;
+    padding: 0.35rem 0.9rem 0.35rem 0.45rem !important;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+}
+
+.user-dropdown-btn:hover {
+    background: #273549 !important;
+    border-color: #475569 !important;
+}
+
+.user-avatar-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--primary-gradient);
+    color: #ffffff !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.dropdown-menu {
+    background-color: #1e293b !important;
+    border: 1px solid #334155 !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
+}
+
+.dropdown-item {
+    color: #cbd5e1 !important;
+    transition: all 0.15s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #334155 !important;
+    color: #ffffff !important;
+}
+
+.dropdown-divider {
+    border-color: #334155 !important;
+}
+
+/* --------------------------------------------------------------------------
+   DARK CARDS & CONTAINERS (NO MORE WHITE CARDS)
+   -------------------------------------------------------------------------- */
+.card {
+    background-color: var(--bg-surface) !important;
+    background-image: none !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius-lg) !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3) !important;
+    color: var(--text-primary) !important;
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: #162032 !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    padding: 1.15rem 1.4rem;
+    font-weight: 700;
+    color: #f8fafc !important;
+}
+
+.card-body {
+    padding: 1.4rem;
+    color: var(--text-primary) !important;
+}
+
+.card-footer {
+    background-color: #162032 !important;
+    border-top: 1px solid var(--border-color) !important;
+    padding: 0.9rem 1.4rem;
+    color: var(--text-secondary) !important;
+}
+
+/* --------------------------------------------------------------------------
+   DASHBOARD HERO & STAT CARDS (RICH GRADIENT + CRISP TEXT)
+   -------------------------------------------------------------------------- */
+.hero-banner {
+    background: linear-gradient(135deg, #1e1b4b 0%, #1e293b 60%, #0f172a 100%) !important;
+    border: 1px solid #312e81 !important;
+    border-radius: var(--radius-xl);
+    padding: 2.25rem;
+    color: #ffffff !important;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: #ffffff !important;
+    margin-bottom: 0.4rem;
+}
+
+.hero-subtitle {
+    font-size: 1rem;
+    color: #cbd5e1 !important;
+    margin-bottom: 1.25rem;
+}
+
+.stat-card {
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+}
+
+.stat-card-blue   { background: linear-gradient(135deg, #3730a3 0%, #4338ca 100%) !important; }
+.stat-card-green  { background: linear-gradient(135deg, #065f46 0%, #047857 100%) !important; }
+.stat-card-cyan   { background: linear-gradient(135deg, #0e7490 0%, #0284c7 100%) !important; }
+.stat-card-amber  { background: linear-gradient(135deg, #92400e 0%, #b45309 100%) !important; }
+
+.stat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.stat-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #e0e7ff !important;
+    margin: 0;
+}
+
+.stat-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: #ffffff !important;
+}
+
+.stat-value {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: #ffffff !important;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: -0.02em;
+}
+
+.stat-link {
+    color: #f8fafc !important;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.stat-link:hover {
+    color: #a5b4fc !important;
+}
+
+/* --------------------------------------------------------------------------
+   HIGH-CONTRAST TABLES (DARK SURFACE, CRISP TEXT)
+   -------------------------------------------------------------------------- */
+.table-custom {
+    margin: 0;
+    background-color: var(--bg-surface) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+}
+
+.table-custom th {
+    background-color: #162032 !important;
+    color: #cbd5e1 !important;
+    font-weight: 700;
+    font-size: 0.825rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 1rem 1.15rem;
+    border-bottom: 2px solid var(--border-color) !important;
+}
+
+.table-custom td {
+    background-color: var(--bg-surface) !important;
+    padding: 1rem 1.15rem;
+    vertical-align: middle;
+    color: #f1f5f9 !important;
+    font-size: 0.925rem;
+    border-bottom: 1px solid #273549 !important;
+}
+
+.table-custom tr:hover td {
+    background-color: var(--bg-surface-hover) !important;
+}
+
+/* --------------------------------------------------------------------------
+   FORM INPUTS (HIGH-CONTRAST DARK INPUTS)
+   -------------------------------------------------------------------------- */
+.form-control, .form-select {
+    background-color: var(--bg-input) !important;
+    border: 1.5px solid var(--border-color) !important;
+    color: #f8fafc !important;
+    border-radius: var(--radius-sm);
+    padding: 0.65rem 0.95rem;
+    font-size: 0.925rem;
+    transition: all 0.2s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: #0b1120 !important;
+    border-color: #818cf8 !important;
+    box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.25) !important;
+    color: #ffffff !important;
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: #64748b !important;
+}
+
+.form-label {
+    color: #cbd5e1 !important;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+}
+
+.input-group-text {
+    background-color: #162032 !important;
+    border: 1.5px solid var(--border-color) !important;
+    color: #94a3b8 !important;
+}
+
+/* --------------------------------------------------------------------------
+   VIBRANT HIGH-CONTRAST BADGES
+   -------------------------------------------------------------------------- */
+.badge-soft {
+    font-weight: 700;
+    font-size: 0.775rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.badge-soft-primary { background: #312e81; color: #a5b4fc !important; border: 1px solid #4338ca; }
+.badge-soft-success { background: #064e3b; color: #6ee7b7 !important; border: 1px solid #047857; }
+.badge-soft-warning { background: #78350f; color: #fde047 !important; border: 1px solid #b45309; }
+.badge-soft-danger  { background: #7f1d1d; color: #fca5a5 !important; border: 1px solid #b91c1c; }
+.badge-soft-info    { background: #0c4a6e; color: #7dd3fc !important; border: 1px solid #0369a1; }
+
+.badge-role         { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; padding: 0.2rem 0.55rem; border-radius: 9999px; letter-spacing: 0.05em; display: inline-block; }
+.badge-role-admin   { background: #4338ca; color: #ffffff !important; }
+.badge-role-user    { background: #047857; color: #ffffff !important; }
+.badge-role-pembeli { background: #0284c7; color: #ffffff !important; }
+
+/* --------------------------------------------------------------------------
+   BUTTONS
+   -------------------------------------------------------------------------- */
+.btn {
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    padding: 0.55rem 1.15rem;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+}
+
+.btn-primary {
+    background: var(--primary-gradient) !important;
+    border: none !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.5);
+    transform: translateY(-2px);
+    color: #ffffff !important;
+}
+
+.btn-warning {
+    background: var(--warning-gradient) !important;
+    border: none !important;
+    color: #ffffff !important;
+}
+
+.btn-danger {
+    background: var(--danger-gradient) !important;
+    border: none !important;
+    color: #ffffff !important;
+}
+
+.btn-light, .btn-outline-secondary {
+    background-color: #1e293b !important;
+    border-color: #334155 !important;
+    color: #cbd5e1 !important;
+}
+
+.btn-light:hover, .btn-outline-secondary:hover {
+    background-color: #334155 !important;
+    color: #ffffff !important;
+}
+
+/* --------------------------------------------------------------------------
+   ALERTS (DARK THEME WITH HIGH CONTRAST)
+   -------------------------------------------------------------------------- */
+.alert {
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    font-size: 0.925rem;
+    font-weight: 600;
+    padding: 1rem 1.25rem;
+}
+
+.alert-success { background: #064e3b !important; color: #a7f3d0 !important; border-color: #059669 !important; }
+.alert-danger  { background: #7f1d1d !important; color: #fecaca !important; border-color: #dc2626 !important; }
+.alert-info    { background: #0c4a6e !important; color: #bae6fd !important; border-color: #0284c7 !important; }
+.alert-warning { background: #78350f !important; color: #fef08a !important; border-color: #d97706 !important; }
+
+/* --------------------------------------------------------------------------
+   PAGINATION
+   -------------------------------------------------------------------------- */
+.pagination {
+    margin: 0;
+}
+
+.page-link {
+    background-color: #1e293b !important;
+    border-color: #334155 !important;
+    color: #cbd5e1 !important;
+}
+
+.page-link:hover {
+    background-color: #334155 !important;
+    color: #ffffff !important;
+}
+
+.page-item.active .page-link {
+    background-color: #4f46e5 !important;
+    border-color: #4f46e5 !important;
+    color: #ffffff !important;
+}
+
+/* --------------------------------------------------------------------------
+   FOOTER
+   -------------------------------------------------------------------------- */
+.footer-custom {
+    margin-top: auto;
+    background: #0f172a !important;
+    border-top: 1px solid #1e293b !important;
+    padding: 1.5rem 0;
+    color: #94a3b8 !important;
+    font-size: 0.875rem;
+}
+
+/* --------------------------------------------------------------------------
+   LOGIN VIEW
+   -------------------------------------------------------------------------- */
+.login-body {
+    background: radial-gradient(circle at 10% 20%, #1e1b4b 0%, #0b1120 70%, #030712 100%) !important;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.login-card {
+    background: #1e293b !important;
+    border: 1px solid #334155 !important;
+    border-radius: var(--radius-xl);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6) !important;
+    width: 100%;
+    max-width: 440px;
+}
+
+.login-title {
+    color: #ffffff !important;
+}
+
+.login-subtitle {
+    color: #94a3b8 !important;
+}
+
+.demo-account-badge {
+    cursor: pointer;
+    background: #0f172a !important;
+    border: 1px solid #334155 !important;
+    border-radius: var(--radius-sm);
+    padding: 0.45rem 0.85rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #cbd5e1 !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.2s ease;
+}
+
+.demo-account-badge:hover {
+    background: #312e81 !important;
+    color: #ffffff !important;
+    border-color: #6366f1 !important;
+}
